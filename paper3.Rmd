@@ -1,0 +1,236 @@
+---
+output: 
+  pdf_document:
+    citation_package: natbib
+    keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    template: ~/Dropbox/miscelanea/svm-r-markdown-templates/svm-latex-ms.tex
+title: "The role of personal success in the reasoning driven altruistic behaviour"
+author:
+- name: Anindya Auveek
+  affiliation: University of Toronto
+abstract: "Altruism is the moral practice of helping others even when it may come with a personal cost. Although evolution has been a main factor behind humans developing altruistic behaviours, it does not explain non-reciprocal altruism (helping strangers). This must be explained through a combination of evolution and reasoning-based decision making. In this paper, I study the specific role of personal success in driving reasoning based altruistic behaviour. To do so, I first select variables that traditionally capture individual success in life and altruistic attitudes respectively. Following I study the relationship between these variables to identify whether there is evidence for personal success playing a factor in an individual’s altruistic attitudes. My finding suggests that there indeed is evidence for this. Although the identified variables may not be perfect in capturing the conceptual properties that we are aiming to capture; it provides an initial validation of the topic. In the future, more accurate measures that capture altruistic attitudes such as a game score can be used to further study this topic."
+keywords: "pandoc, r markdown, knitr"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontfamily: mathpazo
+fontsize: 11pt
+# spacing: double
+bibliography: ~/Dropbox/master.bib
+biblio-style: apsr
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+library(foreign)
+library(dplyr)
+library(MASS)
+library(ggplot2)
+library(kableExtra)
+```
+
+
+
+```{r, include=FALSE, echo=FALSE}
+gss_data_unfiltered <- read.dta("gss2021.dta")
+gss_selected <- dplyr::select(gss_data_unfiltered, helppoor, helpnot, helpsick, helpblk, ldctax, migrpoor, fairv, helpfulv, coninc, incom16, happy, health, life, satfin, finrela, goodlife, skipmeal, hlthphys, hlthmntl, satsoc, class, rank)
+```
+
+
+## Intro
+
+
+
+## Data
+
+I will be using the US census survey to conduct this study. Isolating the research to Americans only reduces the variability in data due to country of residence. Consequently, I could have chosen any other country to do this study on as well.
+
+To follow, since I want to study the relationship between Altruism and Quality of Life, I will be indentifying variables from the data set that represent either the altruistic characteristic of an individual or their quality of life.
+
+### Variables that capture Altruistic Characteristics
+
+#### FAIRV: Do you think most people would try to take advantage of you if they got a chance, or would they try to be fair? 
+
+#### HELPFULV: Would you say that most of the time people try to be helpful, or that they are mostly just looking out for themselves? 
+
+The above two variables indirectly captures an individuals altruistic intent because of reciprocal altruism. If they believe another person is likely to be fair/helpful to them, they are more likely to be fair/helpful towards others.
+
+#### HELPPOOR: The Government should take care of people (1 - strong agree, 5 - strong disagree). 
+
+#### HELPNOT: The Government doing too much or should do more to help people
+
+### HELPSICK: The Government should help in paying hospital bills vs not paying them
+
+#### HELPBLK: The Government should be helping imprve living standards of black people
+
+The above 4 variables are relevant because they represent a person's willingness to contribute for the greater good of the people. The government helping people means
+
+#### LDCTAX. Wealth countries pay taxes to aid less wealthier ones
+
+#### MIGRPOOR, Poor countries people should be able to work in wealthier ones
+
+These two variables are relevant for capturing altruistic properties for the subjects in this dataset specifically because america the wealthiest country in the world. Aiding people from other countries means people will be sacrificing their own resources to do so.
+
+
+
+
+
+```{r, echo=FALSE. include-FALSE}
+
+
+Attribute_Name <- vector(mode = "character", length = ncol(gss_selected) - 1)
+Mean <- vector(mode = "character", length = ncol(gss_selected) - 1)
+Standard_Deviation <- vector(mode = "character", length = ncol(gss_selected) - 1)
+
+count <- 0
+
+for (i in colnames(gss_selected)){
+   Mean[count] <- mean(as.numeric(unlist(na.omit(gss_selected[i]))))
+   Standard_Deviation[count] <- sd(as.numeric(unlist(na.omit(gss_selected[i]))))
+   Attribute_Name[count] <- i
+   count <- count + 1
+}
+
+
+mean_sd_table <- data.frame(Attribute_Name, Mean, Standard_Deviation)
+
+kbl(mean_sd_table, caption = "Means and standard Deviations of Selected Variables") %>%
+  kable_styling()
+
+
+```
+
+
+
+```{r, echo=FALSE. include-FALSE}
+
+counts_table <- data.frame(Attribute = character(ncol(gss_selected)), b = character(ncol(gss_selected)), c = character(ncol(gss_selected)),
+                           d = character(ncol(gss_selected)), e = character(ncol(gss_selected)), f = character(ncol(gss_selected)))
+
+for (i in seq(1,ncol(gss_selected))){
+  atr <- colnames(gss_selected)[i]
+  if (atr != "coninc"){
+    cts <- table(gss_selected[,i])
+    for (j in seq(1,length(cts))){
+      counts_table[i, j+1] <- signif(as.numeric(cts[j])/sum(cts), 5)
+    }
+    counts_table[i, 1] <- atr
+  }
+}
+
+colnames(counts_table) <- c("AttributeName", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+
+kbl(counts_table, caption = "Categorical Variable Frequencies") %>%
+  kable_styling()
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Including Plots
+
+```{r, echo=FALSE. include-FALSE}
+
+helpoor_vs_inc <- na.omit(dplyr::select(gss_selected, helppoor, coninc)) %>% 
+  group_by(helppoor) %>% summarise(
+  income = mean(coninc)
+)
+helpnot_vs_inc <- na.omit(dplyr::select(gss_selected, helpnot, coninc)) %>% 
+  group_by(helpnot) %>% summarise(
+  income = mean(coninc)
+)
+
+gss_selected$inc_group <- cut(gss_selected$coninc, 
+                   breaks=c(0, 20000, 40000, 80000, 100000, 200000), 
+                   labels=c("0-20k","20k-40k","40k-80k", "80k-100k", "100k-200k"))
+
+inc_vs_help <- na.omit(dplyr::select(gss_selected, helppoor, coninc, helpnot, helpblk, inc_group, helpsick)) %>% 
+  group_by(inc_group) %>% summarise(
+  income = mean(coninc),
+  helppoor = mean(helppoor),
+  helpnot = mean(helpnot),
+  helpblk = mean(helpblk),
+  helpsick = mean(helpsick)
+)
+
+happy_vs_help <- na.omit(dplyr::select(gss_selected, helppoor, happy, helpnot, helpblk, helpsick)) %>% 
+  group_by(happy) %>% summarise(
+  helppoor = mean(helppoor),
+  helpnot = mean(helpnot),
+  helpblk = mean(helpblk),
+  helpsick = mean(helpsick)
+)
+
+happy_vs_help <- na.omit(dplyr::select(gss_selected, helppoor, happy, helpnot, helpblk, helpsick)) %>% 
+  group_by(happy) %>% summarise(
+  helppoor = mean(helppoor),
+  helpnot = mean(helpnot),
+  helpblk = mean(helpblk),
+  helpsick = mean(helpsick)
+)
+kbl(happy_vs_help, caption = "Mean Altruistic responses of different happiness levels") %>%
+  kable_styling()
+
+chi_inc_help <- na.omit(dplyr::select(gss_selected, coninc, helppoor, helpnot, helpblk, helpsick))
+
+
+chi_happy_help <- na.omit(dplyr::select(gss_selected, happy, helppoor, helpnot, helpblk, helpsick, coninc))
+
+
+ch_test_inc_poor <- chisq.test(chi_inc_helppoor$coninc, chi_inc_helppoor$helppoor) 
+ch_test_inc_help <- chisq.test(chi_inc_helppoor$coninc, chi_inc_helppoor$helpnot) 
+ch_test_inc_blk <- chisq.test((c))
+
+
+ch_test_help_happy <- chisq.test(chi_happy_help$happy, chi_happy_help$helppoor)
+
+model <- lm(coninc ~ as.numeric(helppoor), data = chi_happy_help)
+
+plot(coninc ~ as.numeric(helppoor), data = chi_happy_help)
+abline(model)
+
+
+model1 <- polr(as.factor(helppoor) ~ happy, data = chi_happy_help)
+
+ggplot(chi_happy_help, aes(x = happy, fill = as.factor(helppoor))) + geom_bar(position = "stack")
+
+
+ggplot(chi_happy_help, aes(happy, as.numeric(helppoor))) +  geom_bar(position = "dodge",stat = "summary",fun = "mean")
+
+```
+
+Although there is no clear pattern linear correlation between wanting to collectively take care of others, and income. This shows that people who are very much in support of government aid (1) are less wealthy than people who are less supportive (4). Rather than an altruistic decision this may be because people in lower financial brackets require government aid more than higher ones. Evidently, there is no clear evidence in the data that shows that people in different financial brackets respond differently to the idea of government helping people in general. 
+
+Grouping by the income group instead, we see a similar pattern. Higher income groups are more likely to resist government aid as they are better fit to take care of themselves. Therefore this does not say anything about the differences of altruistic attitudes among individuals with different rates of monetary success.
+
+On the other hand, happiness does seem to play a part in an individuals altruistic attitude towards helping others through overnment aid
+
+
+
+
+
+

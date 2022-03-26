@@ -1,23 +1,20 @@
 ---
-title: "The role of quality of life in the non-reciprocal altruistic behaviour"
+title: "The Role of Quality-of-life in Non-Reciprocal Altruistic Behaviour"
 author: Anindya Auveek
+subtitle: "https://github.com/anind99/paper3"
 date: "03, 22, 2022"
 output: pdf_document
 bibliography: references.bib
 abstract: Altruism is the moral practice of helping others even when it may come with
   a personal cost. Although evolution has been a main factor behind humans developing
   altruistic behaviours, it does not explain non-reciprocal altruism (helping strangers).
-  This must be explained through a combination of evolution and reasoning-based decision
-  making. In this paper, I study the specific role of quality-of-life in driving reasoning
-  based altruistic behaviour. To do so, I first select variables that traditionally
+  This must be explained through a combination of evolution and conscious decision
+  making. In this paper, I study the specific role of quality-of-life in driving conscious altruistic behaviour. To do so, I first select variables that traditionally
   capture individual success in life and altruistic attitudes respectively. Following
   I study the relationship between these variables to identify whether there is evidence
-  for personal success playing a factor in an individual’s altruistic attitudes. My
-  finding suggests that there indeed is evidence for this. Although the identified
-  variables may not be perfect in capturing the conceptual properties that we are
-  aiming to capture; it provides an initial validation of the topic. In the future,
-  more accurate measures that capture altruistic attitudes such as a game score can
-  be used to further study this topic.
+  for quality of life being positively correlated with an individual’s altruistic attitudes. My findings suggests that there indeed is evidence for this. Although the identified
+  variables chosen to represent altruism and quality-of-life may not be perfect in capturing the concepts; it provides an initial validation of the topic. In the future,
+  more accurate measures that capture altruistic attitudes such as a quantitative score on an altruistism game can be used to further study this topic. In addition, specific psychological factors, rather than the broad concept of quality-of-life should be studied in depth.
 geometry: margin=1in
 fontfamily: mathpazo
 fontsize: 11pt
@@ -45,19 +42,21 @@ gss_selected <- dplyr::select(gss_data_unfiltered, helppoor, helpnot, helpsick, 
 ```
 
 
-## Intro
+## Introduction
 
-Altruism is the moral practice of helping others even when it may come with a personal cost. Through years of behavioral evolution in social organisms such as ourselves, altruistic tendencies have emerged as it served the best interest of the group. Groups of people that took care of each other we more likely to survive than individualist groups of people. However, in modern society altruistic behavior doesn’t stop at immediate groups close to the individual. 
+Altruism is the moral practice of helping others even when it may come with a personal cost. Through years of behavioral evolution in social organisms such as ourselves, altruistic tendencies have emerged as it served the best interest of the group. Groups of people that took care of each other were more likely to survive than individualistic groups of people. However, in modern society altruistic behavior doesn’t stop at immediate groups that an individual is a part of. 
 
 Today humans act altruistically without chance for repercussion.  For example, people donate blood, help the homeless and even incur costs to punish those who have harmed others. This cannot be strictly explained by evolution, through kin selection. In the paper by [@Article1], the have proposed that the co-evolution of gene and culture along with conscious decision making are the driving forces of non-reciprocal altruistic behavior.  
 
 The former (gene and culture) draws on the idea that evolutionary process shapes human beliefs. Specifically, competition between groups select for norms which are most beneficial for survival. As a result, groups who tend to be more cooperative are more likely to be victorious. Overtime, these norm selections result in the shaping of genetics. Due to the punishment of norm violators such as cheaters through various ways (social criticism, physical punishment), the biological instinct of being more altruistic may have been selected for. Having said this, being altruistic in the modern context may sometimes be mal-adaptive. Incurring personal cost in order to help someone who cannot repay you back does not seem practical. However, people do so because they empathize with the experiences of other humans; morally being encouraged to do so. 
 
-This brings us to the latter reason for altruistic behavior; conscious decision making. [@Article1] explained that there is a role that reasoning players towards the moral decision that result in altruistic behaviour. Rather than hard-wired motions, intuition-based processes play a major part. This may even override the automatic, instinctual responses talked about previously. These processes that underlie moral decisions such as psychological dispositions of fairness are a unique property of human altruism. This aspect of altruistic process has yet to be thoroughly studied closely. 
+This brings us to the latter reason for altruistic behavior; conscious decision making. Vlerick (2020) explained that there is a role that conscious reasoning plays towards the moral decision that result in altruistic behavior. Rather than hard-wired motions, intuition-based processes play a major part. This may even override the automatic, instinctual responses talked about previously. These processes that underlie moral decisions such as psychological dispositions of fairness are a unique property of human altruism. This aspect of altruistic process has yet to be thoroughly studied closely. 
 
-In this paper I will draw on this reasoning-based process to analyse whether one’s individual success plays a role in their likelihood of acting more altruistically. Drawn from my own intuition that people who are struggling less in life (whether monetarily, or through another medium) are more willing to help others. I use the data collected by the American census survey [@Data] and select for two groups of variables. The first representing traditional ideas of individual success, the second representing one’s altruistic tendencies. To follow, I will compare dependant variables of altruistic responses, grouped by the independent variables of individual success levels. I will use linear regression along with t-tests to determine the significance of the relationships between these variables.
+In this paper I will expand on this idea of conscious processing to analyse whether an individual's quality-of-life plays a role in their likelihood of acting more altruistically. Drawn from my own intuition that people who are struggling less in life (whether monetarily, or through psychological dispositions) are more willing to help others. I use the data collected by the American census survey [@Data] and select for two groups of variables. The first representing traditional ideas of quality-of-life, the second representing one’s altruistic tendencies. To follow, I will compare dependent variables of altruistic responses, grouped by the independent variables of quality-of-life success levels. I will use linear regression, ordinal logistic regression along with chi-squared tests to determine the significance of the relationships between these variables.
  
-The results suggest that altruistic behaviour does indeed correlate with individual success. Logically, if a person is financially struggling, they will have less freedom to help others financially. Similarly, if a person is not satisfied with their own life, they are less likely to be in the mental state to help others with theirs. These findings are important because they provide a deeper insight on what makes humans how they are. Although individuals may want to perform selfless acts in the best interest of others in society. Their personal circumstances may not allow for it.
+The results suggest that altruistic behavior does indeed correlate with individual success. Logically, if a person is financially struggling, they will have less freedom to help others financially. Similarly, if a person is not satisfied with their own life (financially or socially), they are less likely to be in the mental state to help others with theirs. Specifically, mental health plays a huge part in determining an individuals altruistic tendency. The more healthy an individual the more altruistically they are able to act. 
+
+These findings are important because they provide a deeper insight on what makes humans how they are. Although individuals may want to perform selfless acts in the best interest of others in society. Their personal circumstances may not allow for it.
 
 
 
@@ -65,33 +64,34 @@ The results suggest that altruistic behaviour does indeed correlate with individ
 
 I will be using the US census survey to conduct this study. Isolating the research to Americans only reduces the variability in data due to country of residence. Consequently, I could have chosen any other country to do this study on as well. The software I will be using for data analysis is R [@Software].
 
-To follow, since I want to study the relationship between Altruism and Quality of Life, I will be identifying variables from the data set that represent either the altruistic characteristic of an individual or their quality of life.
+Since I want to study the relationship between Altruism and Quality of Life, I will be identifying variables from the data set that represent either the altruistic characteristic of an individual or their quality of life.
 
-* Variables that capture Altruistic Characteristics
+### Variables that capture Altruistic Characteristics
 
-* FAIRV: Do you think most people would try to take advantage of you if they got a chance, or would they try to be fair? 
+* FAIRV: Do you think most people would try to take advantage of you if they got a chance, or would they try to be fair? (1 - fair, 3- unfair)
 
-* HELPFULV: Would you say that most of the time people try to be helpful, or that they are mostly just looking out for themselves? 
+* HELPFULV: Would you say that most of the time people try to be helpful, or that they are mostly just looking out for themselves? (1 - helpful, 3- unhelpful)
 
 The above two variables indirectly captures an individuals altruistic intent because of reciprocal altruism. If they believe another person is likely to be fair/helpful to them, they are more likely to be fair/helpful towards others.
 
 * HELPPOOR: The Government should take care of people (1 - strong agree, 5 - strong disagree). 
 
-* HELPNOT: The Government doing too much or should do more to help people
+* HELPNOT: The Government doing too much or should do more to help people (1 - strong agree, 5 - strong disagree). 
 
-* HELPSICK: The Government should help in paying hospital bills vs not paying them
+* HELPSICK: The Government should help in paying hospital bills vs not paying them (1 - strong agree, 5 - strong disagree). 
 
-* HELPBLK: The Government should be helping imprve living standards of black people
+* HELPBLK: The Government should be helping imprve living standards of black people (1 - strong agree, 5 - strong disagree). 
 
 The above 4 variables are relevant because they represent a person's willingness to contribute for the greater good of the people. The government helping people means
 
-* LDCTAX. Wealth countries pay taxes to aid less wealthier ones (5 - extremely agree)
+* LDCTAX. Wealth countries pay taxes to aid less wealthier ones (1 - strong dis, 5 - strong agree). 
 
 * MIGRPOOR, Poor countries people should be able to work in wealthier ones (1 - extremely agree, 3 - extremely disagree)
 
-These two variables are relevant for capturing altruistic properties for the subjects in this dataset specifically because america the wealthiest country in the world. Aiding people from other countries means people will be sacrificing their own resources to do so.
+These two variables are relevant for capturing altruistic properties for the subjects in this data set specifically because america the wealthiest country in the world. Aiding people from other countries means people will be sacrificing their own resources to do so.
 
 #### Variables that capture an individuals quality of life (by societal definitions)
+
 
 The following variables represent happiness, health, satisfaction, financial situation and outlook. Which all are factors that may contribute to an individuals quality of life (by societal standards).
 
@@ -134,7 +134,7 @@ knitr::kable(mean_sd_table, caption = "Table I: Means and standard Deviations of
 
 ```
 
-Since most of these variables are categorical, just looking at mean and standard deviation does not give us an idea of it's distribution. Below I present their distribution as a frequency (in a table).
+The above chart contains the mean and distribution of each of the select variables. However, since most of these variables are categorical just looking at mean and standard deviation does not give us an idea of their distribution. Therefore, I present the distribution of the categorical variables as frequency.
 
 ```{r, message = FALSE,echo=FALSE, error=FALSE, warning=FALSE}
 
@@ -160,11 +160,11 @@ knitr::kable(counts_table, caption = "Table II: Categorical Variable Frequencies
 
 ```
 
-All the above categorical variables are on a 5-point scale. Therefore a single table is suitable for visualising their frequency counts. An interesting finding is that people usually are hesitant to answer at extreme values. Most of the time the middle value is the answer with the highest frequency. 
+All the above categorical variables are on a 5-point scale. Therefore a single table (Table II) is suitable for visualizing their frequency counts. An interesting finding is that people usually are hesitant to answer at extreme values. Most of the time the middle value is the answer with the highest frequency. 
 
 The following variables are significantly right skewed: helppoor, migrpoor, helpnot, helpsick, life. This tells us that most people agree that the government should be helping people (specifically the poor and sick). The life (satisfaction) variable being skewed to the right tells us that more people are dissatisfied with their life than the contrary. The only variable that is significantly left skewed is ldctax. This implies that while people are willing for the government to be helping people in their own country (including themselves). They are much less willing to incur costs to help people they aren't directly involved with. 
 
-To follow, "Coninc: The income of the individual in dollars" is the only continuous variable, it is suitable to represent using a histogram. Below I present it's distrbution along with a normal overlay curve.
+To follow, "Coninc: The income of the individual in dollars" is the only continuous variable, it is suitable to represent it's distribution using a histogram.
 
 
 ```{r, message = FALSE,echo=FALSE, error=FALSE, warning=FALSE}
@@ -176,15 +176,12 @@ ggplot(gss_selected, aes(x = coninc)) +
 stat_function(fun = dnorm, args = list(mean = mean(na.omit(gss_selected$coninc)), sd = sd(na.omit(gss_selected$coninc)))) 
 
 ```
-We can see that the yearly income of individuals (barring the positive outlier), is fairly normally distrbuted as we would anticipate.
 
-To keep the inital exploration of the relationships between concise, and reducing the possible correlations between quality of life attributes I will only be selecting specific variables to presenting the distirbution counts of. 
+We can see in Plot 1 that the yearly income of individuals (barring the positive outlier), is fairly normally distributed as we would anticipate. 
 
-For the dependent variables representing altruism I will be using "helppoor", "helpsick", "migrpoor", "ldctax". 
+In order to get a better understanding of the distributions of the altruistic variables in relation to quality-of-life attributes, it may be benefical to look at grouped distributions. To keep the inital exploration of the relationships concise, and reducing the possible correlations between quality of life attributes I will only be selecting specific variables to look at distribution distirbution counts of.
 
-For the independent variables representing quality of life I will be using "satfin", "happy", "hlthphys" and "inc_group". This last variable I have created; which categorises the income level of the individual within a bracket. To visualize these relationships, a bar chart is suitable. Each of these variables are less likely to be co-dependent than for example "mental health" and "happiness", and therefore can have more weight when representing the concept of "quality of life". 
-
-Below are tables of the mean altruistic scores, grouped by the independent "quality of life" variables.
+For the dependent variables representing altruism I will be using "helppoor", "helpsick", "migrpoor", "ldctax". For the independent variables representing quality of life I will be using "satfin", "happy", "hlthphys" and "inc_group". This last variable I have created; which categorizes the income level of the individual within a bracket. To visualize these relationships, a bar chart is suitable. 
 
 
 ```{r, message = FALSE,echo=FALSE, error=FALSE, warning=FALSE}
@@ -223,37 +220,40 @@ knitr::kable(Altruism_by_groups2, caption = "Table IV: Mean Altruistic Character
 
 ```
 
-There are two interesting findings from the tables above. First, the willingness of individuals agreeing that the government should be helping sick people increases as their physical health score declines. This may be because of personal gain, but also because their empathy/understanding that people in a similar position. Similarly, the willingness of people agreeing that the government should be helping poor people decreases with income group.
-
-Below are counts of altruistic responses, in relation to the identified "quality of life" variables. I visualize them using a box plot and facet on an additional independent variable. (see appendix Plots 2 - 9)
 
 
-#### Helppoor by Income Group and Financial Satisfaction
+Tables III and IV provide the mean altruistic scores, grouped by the independent "quality of life" variables. There are two interesting findings from these groupings. First, the willingness of individuals agreeing that the government should be helping sick people increases as their physical health score declines. This may be because of personal gain, but also because their empathy/understanding that people in a similar position. Similarly, the willingness of people agreeing that the government should be helping poor people decreases with income group.
+
+\hfill \break 
+
+AFter looking at these mean responses, tt would also be beneficial to analyze the distribution of the grouped altruistic responses. So, to visualize this I present faceted box plots. (see appendix Plots 2 - 9)
+
+#### Plot 2: Helppoor by Income Group and Financial Satisfaction
 
 Lower income groups are right skewed; meaning people with lower incomes are more willing for the government to give financial aid to poor people, as expected. To add, higher financial (lower number) satisfaction also results in a right skew. Wealthier people who are satisfied are more likely to take an altruistic stance.
 
-#### Helppoor by Happiness and Physical Health
+#### Plot 6: Helppoor by Happiness and Physical Health
 
 Lower physical health levels are right skewed; people who are in worse physical condition are more likely to accept government financial aid towards poor people. This may be due to financial reasons (expensive health care in america), but also could be because they are empathetic towards poorer people due to their own circumstance.
 
-#### Helpsick by Income Group and Financial Satisfaction
+#### Plot 3: Helpsick by Income Group and Financial Satisfaction
 
 As previously found Lower income groups are right skewed. To add, high financial satisfaction in addition to a higher income group also results in a right skew. Wealthier people who are satisfied are more likely to take an altruistic stance.
 
 
-#### Helpsick by Happiness and Physical Health
+#### Plot 7: Helpsick by Happiness and Physical Health
 
 Almost all distributions are right skewed.
 
-#### Migrpoor by (Income Group and Financial Satisfaction) or (Happiness and Physical Health)
+#### Plot 4, 8: Migrpoor by (Income Group and Financial Satisfaction) or (Happiness and Physical Health)
 
 Almost all distributions are right skewed. That means most people agree that poor people should be able to move to other countries for better opportunity
 
-#### Ldctax by Income Group and Financial Satisfaction
+#### Plot 5: Ldctax by Income Group and Financial Satisfaction
 
 Higher Income Groups are left skewed. Meaning people who are wealthy are less willing to take an altruistic stance that may not be reciprocal at all (helping people in other countries). This may be because they cannot relate to their situation.
 
-#### Ldctax by by Happiness and Physical Health
+#### Plot 9: Ldctax by by Happiness and Physical Health
 
 Most groups are left skewed, meaning people are less willing to help others in a different country without expecting something in return. However, an interesting finding is that people who are in high physical health along with level of happiness have a right skewed distrbution. This implies that happier and healthier people are more likely to take an altruistic stance.
 
@@ -261,8 +261,7 @@ To delve into these relationships more deeply, I will now be examining them quan
 
 ## Results
 
-
-To start I will be analyzing the relationship between the categorical variables representing quality of life, with the categorical variables representing altruistic attitudes. An appropriate analysis to determine the dependence between two categorical variables is the chi squared test. Below I provided a table of the chi-squared p value of between each of the altruistic variables and the quality of life variables. I will be using a significance level of 5%. 
+To start I will be analyzing the impact of the the categorical variables representing quality of life on altruistic attitudes. An appropriate analysis to determine the dependence between two categorical variables is the chi squared test. Therefore I provided a table containing the p-values of chi-squared t-tests of between each of the altruistic and quality of life variables (using a significance level of 5%). 
 
 ```{r, message = FALSE,echo=FALSE, error=FALSE, warning=FALSE}
 gss_alt <- dplyr::select(gss_selected, helppoor, helpnot, helpsick, helpblk, ldctax, migrpoor, helpfulv)
@@ -290,23 +289,25 @@ knitr::kable(Chisq_table, caption = "Table IV: P Value of Chi Square Test Compar
   
 ```
 
-As seen from this chart:
+As seen from Table IV:
 
     * Happiness has a significant relationship with all factors besides ldctax and migrpoor. 
     * life (satisfaction) has a signifiant relationship with helpnot, helpsick, and ldctax
-    * Financial Satisfaction (satfin) and Physical health (hlthphys) has a signficant relatioship with all attributes besides migrpoor
-    * finrela (Relational income), goodlife, and satsoc has a signifianct relationship with all altruistic attributes
+    * Financial Satisfaction (satfin) and Physical health (hlthphys) has a signficant 
+      relatioship with all attributes besides migrpoor
+    * finrela (Relational income), goodlife, and satsoc has a signifianct relationship
+      with all altruistic attributes
 
-As expected, the variables representing quality of life and the variables represent altruistic characteristics are mostly correlated. However, the extent of these are yet to be determined. 
-
-To follow and supplement this analysis I will use ordinal logistic regression to model each of the relationships between the altruistic variables and the quality of life attributes. 
-
+As expected, the variables representing quality of life and the variables represent altruistic characteristics are mostly correlated. However, the extent of these are yet to be determined.
+To follow and supplement this analysis I will use ordinal logistic regression to determine the extent and nature of their relationships.
 
 Here is formula for my ordinal logistic regression model:
 
 $l o g i t ( P ( Y <= j ) ) = B_{j0} + B_{j1} x_1$ ; where $l o g i t ( P ( Y <= j ) ) = log \frac{P ( Y <= j )}{P ( Y > j )}$
 
-Below is a table that contains the beta coefficient of these models comparing each of the altruism variables with the quality of life attributes. The models where the relationship was not significant (according to chi-squared) contains a "p > 0.05" marker.
+Y represents an altruistic variable, X represents a quality of life variable, and j represents a specific value of X.
+
+Table V that contains the beta coefficient of these models comparing each of the altruism variables with the quality of life attributes. The models where the relationship was not significant (according to chi-squared) contains a "p > 0.05" marker.
 
 
 ```{r, message = FALSE,echo=FALSE, error=FALSE, warning=FALSE}
@@ -332,32 +333,55 @@ knitr::kable(Log_reg_table, caption = "Table V: Coefficient of Logistic Regressi
   kable_styling(latex_options="scale_down")
   
 ```
-It may be difficult to realize what these numbers represent. Here is an interpretation of coefficients provided:
+It may be difficult to realize what the numbers in the table represent. Here is an interpretation of coefficients provided:
 
-Let B be the logistic regression coeffcient of model where Y represents an altruistic variable and X represents a quality of life attribute. With 1 point increase in X, logit of Y (log of the odds of Y = y as opposed to another value) increases by B amount. In terms of odds, the odds of Y being a specific number is multiplied by exp(B) when X increases by 1. 
+Let B be the logistic regression coeffcient of model (in Table V) where Y represents an altruistic variable and X represents a quality of life attribute. With 1 point increase in X, the logit of Y (log of the odds of Y = y as opposed to another value) increases by B amount. In terms of odds, the odds of Y being a specific number is multiplied by exp(B) when X increases by 1. 
 
-Looking at the values in the above table realize that the correlation between the variables are actually quite moderate; with all the coefficients having an absolute value less than 0.25. Interpreting the relationship between helppoor and happy specifically; the logit of helppoor decreases by 0.145 points when the happiness score of the individual increases by 1. Exp(0.145) is 0.865. Therefore in other words, the odds of the individual disagreeing that the government should be helping poor people decreases by 13.5% when their happiness score increases by 1.
+Looking at the values in the above table, we realize that the correlation between the variables are actually quite moderate; with all the coefficients having an absolute value less than 0.25. Interpreting the relationship between helppoor and happy specifically; the logit of helppoor decreases by 0.145 points when the happiness score of the individual increases by 1. Exp(0.145) is 0.865. In other words, the odds of the individual disagreeing that the government should be helping poor people decreases by 13.5% when their happiness score increases by 1.
 
-As seen above the quality-of-life attributes of hlthmntl, satfin and satsoc have a relatively high effect on altruistic attitudes.Therefore, below I will provide a visualization of the effects on altruistic variables specifically by the quality of life attributes of hlthmntl, satsoc and satfin respectively. (see appendix)
+As seen from Table V, the quality-of-life attributes of hlthmntl, satfin and satsoc have a relatively high effect on altruistic attitudes. Therefore, I will provide a visualization of the effects on altruistic variables specifically by the quality of life attributes of hlthmntl, satsoc and satfin respectively. (see appendix)
 
 #### As seen from plots 10-16 (appendix), here are some interesting findings:
-    * With the increase of mental health the probability that an individual highly agrees (Y = 1) that the government should be helping people (helppoor, helpnot, helpsick, helpblk) increases significantly. 
-    * With the increase of mental health the probability that individual highly disagrees (Y = 5) that the government should be helping black people decreases significantly. 
-    * With the increase of mental health the probability that individuals highly agree (Y = 3) that most people will be helpful towards them significantly increases, while the probability that they highly disagree (Y = 1) signifantly decreases.
+
+    * With the increase of mental health the probability that an individual 
+      highly agrees (Y = 1) that the government should be helping people 
+      (helppoor, helpnot, helpsick, helpblk) increases significantly. 
+    * With the increase of mental health the probability that individual highly disagrees (Y = 5) 
+      that the government should be helping black people decreases significantly. 
+    * With the increase of mental health the probability that individuals highly agree
+      (Y = 3) that most people will be helpful towards them significantly increases,
+      while the probability that they highly disagree (Y = 1) signifantly decreases.
 
 #### As seen from plots 17-23 (appendix), here are some interesting findings:
-    * With the increase of financial satisfaction the probability that an individual highly agrees (Y = 1) that the government should be helping people (helppoor, helpnot, helpsick) increases significantly. 
-    * With the increase of financial satisfaction the probability that an individual agrees (y  = 2) that the people in richer countries should be paying tax to poorer countries in order to help people (altruism) increases significantly.
-    * With the increase of financial satisfaction, the probability the probability that inidividual highly agrees (y = 3) other people will be helpful towards them increases significantly, and the probability that they highly disagree (Y = 1) decreases significantly.
+
+    * With the increase of financial satisfaction the probability that an 
+      individual highly agrees (Y = 1) that the government should be helping 
+      people (helppoor, helpnot, helpsick) increases significantly. 
+    * With the increase of financial satisfaction the probability that an 
+      individual agrees (y  = 2) that the people in richer countries should be 
+      paying tax to poorer countries in order to 
+      help people (altruism) increasessignificantly.
+    * With the increase of financial satisfaction, the probability the 
+      probability that an inidividual highly agrees (y = 3) other people will 
+      be helpful towards them increases significantly, and the probability that
+      they highly disagree (Y = 1) decreases significantly.
 
 #### As seen from plots 24 - 30 (appendix), here are some interesting findings:
-    * With the increase of social satisfaction the probability that an individual highly agrees (Y = 1) that the government should be helping people (helppoor, helpnot, helpsick, helpblk) increases significantly. 
-    * With the increase of social satisfaction the probability that individual highly disagrees (Y = 5) that the government should be helping black people decreases significantly. 
-    * With the increase of social satisfaction, the probability the probabilty that individual highly agrees (y = 3) other people will be helpful towards them increases significantly, and the probability that they highly disagree (Y = 1) decreases significantly.
+
+    * With the increase of social satisfaction the probability that an individual 
+      highly agrees (Y = 1) that the government should be helping people
+      (helppoor, helpnot, helpsick, helpblk) increases significantly. 
+    * With the increase of social satisfaction the probability that individual
+      highly disagrees (Y = 5) that the government should be helping black 
+      people decreases significantly. 
+    * With the increase of social satisfaction, the probability the probabilty
+      that individual highly agrees (y = 3) other people will be helpful 
+      towards them increases significantly, and the probability that they
+      highly disagree (Y = 1) decreases significantly.
 
 While we have seen the relationships between the categorical variables capturing quality of life and altruistic properties, we have yet to study the impact of the continuous variable representing yearly income. 
 
-I will be using a linear regression model to study these relationships. Below is a table containing the coefficients of linear regression individually between Coninc and each Altruistic Attribute. 
+I will be using a linear regression model to study these relationships. Table VI contains the coefficients of linear regression individually between Coninc and each Altruistic Attribute. 
 
 Here is the formula for relevant for this: $Y = B_0 + B_1X_1$ The table contains coefficients of X.
 
@@ -385,9 +409,12 @@ There are several interesting findings from the linear regression models above:
 
     * Migrpoor and Helpfulv do not have a significant relationship with Coninc
     * With increase of income by the following decrease:
-      + The amount an individual agrees that the government should be helping poor, sick and all people (helppoor/helpsick/helpnot)
-      + The amount an individual agrees that rich people should be paying tax to poorer countries (ldctax)
-    * With the increase of income, the amount an individual agrees that the government should be helping black people financially (helpblk) increases.
+      + The amount an individual agrees that the government should be helping poor, 
+        sick and all people (helppoor/helpsick/helpnot)
+      + The amount an individual agrees that rich people should be paying tax to 
+        poorer countries (ldctax)
+    * With the increase of income, the amount an individual agrees that the government
+      should be helping black people financially (helpblk) increases.
     
 
 While the above is a linear regression model of each altruistic factor individually, I will now provide a model containg all altruistic factors. The formula being: $Coninc = B_0 + \sum_i(B_iAltruism_i)$. Below is table containing the coefficients of this model.
@@ -415,11 +442,17 @@ knitr::kable(Lin_reg_table_2, caption = "Table VII: Coefficient of Multiple Line
 
 When all altruistic attributes are accounted for together, here are interesting findings:
 
-    * helppoor, helpnot, helpsick and helpfulv do not have a significant relatioship with Coninc
+    * helppoor, helpnot, helpsick and helpfulv do not have a 
+      significant relatioship with Coninc
     * With the increase of income, the following decreases:
-      + The amount an individual agrees that rich people should be paying tax to poorer countries (ldctax)
-      + With the increase of income, the amount an individual agrees that poor people in some countries should be able to move to richer countires for better opportunite (migrpoor) decreases.
-    * With the increase of income, the amount that an individual agrees that the government should be helping black people financially (helpblk) specifically, increases.
+      + The amount an individual agrees that rich people should be 
+        paying tax to poorer countries (ldctax)
+      + With the increase of income, the amount an individual agrees 
+        that poor people in some countries should be able to move to 
+        richer countires for better opportunite (migrpoor) decreases.
+    * With the increase of income, the amount that an individual agrees 
+      that the government should be helping black people financially
+      (helpblk) specifically, increases.
 
 
 ## Discussion
@@ -428,31 +461,35 @@ Altruism is an aspect of human intelligence that has evolved naturally. It has h
 
 On the contrary, it is unclear how non-reciprocal altruism arose. In the modern-day people feel a moral pressure to act altruistically towards others. Part of it may be due to preserving their social image, but there are many examples where this is not the case. To specify, people donate money, endanger themselves to protect others, help the homeless, etc. This latter type of altruism cannot be easily explained through genetic theory. There are ongoing discussions.
 
-[@Article1] have proposed that the combination of gene and culture is the cause of non-reciprocal altruism. They explain that due to the benefits of altruistic traits social norms have been shaped to reward such actions. Reversely, these social norms/rewards have resulted in the selection of altruistic traits in general. Thus, through a circular effect, non-reciprocal altruism has become a prevalent trait in humans. To supplement, [@Article1] also adds that conscious decision making also plays a part in an individual’s altruistic attitude. The complex behaviour of the human mind cannot be easily explained through genetics. Their psychological disposition, life experience and moral compass play a significant part. 
+[@Article1] have proposed that the combination of gene and culture is the cause of non-reciprocal altruism. They explain that due to the benefits of altruistic traits, social norms have been shaped to reward such actions. Reversely, these social norms/rewards have resulted in the selection of altruistic traits in general. Thus, through a circular effect, non-reciprocal altruism has become a prevalent trait in humans. To supplement, [@Article1] also adds that conscious decision making also plays a part in an individual’s altruistic attitude. The complex behavior of the human mind cannot be easily explained through genetics. Their psychological disposition, life experience and moral compass play a significant part. 
 
-Consequently, my goal in this paper was to explore this conscious aspect of non-reciprocal altruism. In specific, I wanted to study whether the quality of an individual’s life (by societal definitions) influences the extent of altruistic attitude towards others (non-reciprocal). I hypothesize that the better the quality of an individual’s life, the more inclined and able they are to take on altruistic attitudes. To study this, I used data collected by the American social survey and selected questions which I decided were either related to altruistic attitude or quality of life. 
+Consequently, my goal in this paper was to explore this conscious aspect of non-reciprocal altruism. In specific, I wanted to study whether the quality of an individual’s life (by societal definitions) influences the extent of altruistic attitude towards others (non-reciprocal). I hypothesized that the better the quality of an individual’s life, the more inclined and able they are to take on altruistic attitudes. To study this, I used data collected by the American social survey and selected questions which I decided were either related to altruistic attitude or quality of life.
 
-I began the analysis by looking at the mean/count of the altruistic responses grouped by quality-of-life attributes (of select variables). I found that the mean scores “helppoor” and “helpsick” decreased with “income group” and “physical health” respectively. This is aligned with my hypothesis. However, rather than altruistic, these findings are mostly self-serving. Individuals who have worse health would benefit more from government help. Similarly, lower wealth groups benefit themselves when the government provides help towards poor people. 
+I began the analysis by looking at the mean/count of the altruistic responses grouped by quality-of-life attributes (of select variables). I found that the mean scores “helppoor” and “helpsick” decreased with “income group” and “physical health” respectively. This is are not aligned with my hypothesis. However they can still be explained. Rather than altruistic responses, these findings are mostly self-serving. Individuals who have worse health would benefit more from government help. Similarly, lower wealth groups benefit themselves when the government provides help towards poor people. 
 
-To add, the distribution of “helppoor” scores were right skewed with physical health. People with lower physical health agreed more that the government should be helping poor people. This may because people who are lower in health are more empathetic and therefore support the altruistic attitude of helping poor people. This is contrary to my hypothesis. Another interesting finding from the altruistic counts I found was that wealthier people who are more satisfied financially have a right skewed distribution in “helpsick”. Meaning they more altruistic in the topic of the government helping sick people. Aligning with my hypothesis.
+To add, the distribution of “helppoor” scores were right skewed with physical health. People with lower physical health agreed more that the government should be helping poor people. This may because people who are lower in health are more empathetic and therefore support the altruistic attitude of helping poor people. This is contrary to my hypothesis. Another interesting finding from the altruistic counts was that wealthier people who are more satisfied financially have a right skewed distribution in “helpsick”. Meaning they more altruistic in the topic of the government helping sick people. Aligning with my hypothesis.
 
 Probing deeper into the relationships of these variables, I use statistical models to quantify the extent of their relations. For the categorical variables I use chi-square tests to determine whether the altruistic responses were related to quality-of-life attributes. To follow, of the pairs that were indeed dependant, I used ordinal logistic regression to determine the extent of their relationships. 
-These models provided the most insight for this study. I found that financial/social satisfaction along with mental health is significantly related to the extent of altruistic responses. With increasing mental health and satisfaction (social and financial) people agreed more that the government should be helping people. Additionally, the extent that an individual agrees that people in richer countries should be helping people in poorer ones also increases. Interestingly, their view on other people also becomes more optimistic. An individual who is more financially/socially satisfied or has better mental health is more likely to believe that other people will be helpful towards them. This is in line with my hypothesis that people with a higher quality-of-life are more likely to take altruistic stances.
+
+These models provided the most insight for this study; and were aligned with my hypothesis. I found that financial/social satisfaction along with mental health is significantly related to the extent of altruistic responses. With increasing mental health and satisfaction (social and financial) people agreed more that the government should be helping people. Additionally, the extent that an individual agrees that people in richer countries should be helping people in poorer ones (migrpoor) also increases. Interestingly, their view on other people also becomes more optimistic. An individual who is more financially/socially satisfied or has better mental health is more likely to believe that other people will be helpful towards them. People with a higher quality-of-life are indeed shown to have more likely to take altruistic stances.
 
 Along with the study of categorical independent variables, I used linear regression to study the relation of yearly income with the altruistic attitudes. An interesting thing that I found was that with the increase of income, the amount that an individual agrees that the government should be helping black people financially (helpblk) specifically, increases. This response could be non-reciprocal because the majority of the respondents were likely not black (American demographics). This means that people who are in a better financial state themselves can take a more altruistic attitude towards others due to a freedom from financial pressure.
 
 To summarize these findings, I found that the psychological disposition of an individual determined through their quality of life does indeed have an effect on their altruistic attitude. While some of the findings may be self serving (eg. poorer people agreeing with government help), there are various instances where they are non-reciprocal in nature. The general findings confirm my hypothesis; the better the quality of an individual’s life, the more inclined and able they are to take altruistic attitudes. However, there are several weaknesses to the study.
 
-First and foremost, the breadth of this study for this paper in specific is much too large. We have seen that there are plenty of variables that can represent the quality of life of an individual. These include objective values of their income, and subjective experiences/psychology. Future studies should single out a psychological disposition such as mental health and study its relationship with altruism. Even more specifically, they may single out a factor that could be responsible for mental health and analyse whether that also affects altruistic attitudes. 
+First and foremost, the breadth of this study for this paper in specific is much too large. We have seen that there are plenty of variables that can represent the quality of life of an individual. These include objective values of their income, and subjective experiences/psychology. Future studies should single out a psychological disposition such as mental health and study its relationship with altruism in depth. They may even single out a sub-factor that could be responsible for mental health and analyse whether that also affects altruistic attitudes. 
 
-To add, the survey questions identified may not exactly represent non-reciprocal altruism specifically. For example, the idea of the government helping people is relevant for everyone, including the respondent and their direct relatives. Therefore, a survey specific to non-reciprocal altruistic attitudes is required.
+To add, the survey questions identified may not exactly represent non-reciprocal altruism specifically. For example, the idea of the government helping people is relevant for everyone, including the respondent and their direct relatives. Therefore, a survey specific to non-reciprocal altruistic attitudes is required. I provided an example survey in the appendix.
 	
-Lastly, hidden factors may be a big part why attributes such as financial/social satisfaction and mental health are related to altruism. The relation could also be reversed. People who are more altruistic may be more satisfied with their life and have better mental health. Future studies should study this reverse relationship, and attempt to identify hidden factors that may affect both psychological stances.
+Lastly, hidden factors may be a big part why attributes such as financial/social satisfaction and mental health are related to altruism. The relation could also be reversed. People who are more altruistic may be more satisfied with their life and therefore have better mental health. Future studies should study this reverse relationship, and attempt to identify hidden factors that may affect both psychological stances.
 
+\hfill \break \hfill \break 
 
 ## Bibliography
 
 <div id="refs"></div>
+
+\newpage
 
 
 ## Appendix
@@ -460,12 +497,11 @@ Lastly, hidden factors may be a big part why attributes such as financial/social
 
 ## Suplementary Survey
 
-
-This is a social survey that attempts to understand your your attitude towards others. Please answer as honestly as possible.
+This is a social survey that attempts to understand your attitude towards others along with you psychological disposition. Please answer as honestly as possible.
 
 ### Attitude Towards Others Survey
 
-There is provided a set of 10 prompts. On a scale of 1 to 5, please write how much you agree with each prompt.
+In this section, there is provided a set of 10 prompts. On a scale of 1 to 5, please write how much you agree with each prompt.
 
 * I believe donating blood is important and I would personally do it given that I am in good health.
 
@@ -486,6 +522,19 @@ There is provided a set of 10 prompts. On a scale of 1 to 5, please write how mu
 * I will take time out of my day to help a stranger in need.
 
 * If I were to chose any occupation, I would choose something that can benefit society over money.
+
+
+### Attitude Towards Others Survey
+
+In this section, there is provided a set of 7 personal qualities. On a scale of 1 to 10, please rate this quality in yourself.
+
+* Mental Health
+* Social Life
+* Family Life
+* Life Satisfaction
+* Career Satisfaction
+* Physical Health
+* Financial Independence
 
 
 ## Plots
